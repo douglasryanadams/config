@@ -135,7 +135,7 @@ IFS=$OLDIFS
 
 specs() {
     echo "CPU Cores: $(cat /proc/cpuinfo | grep "model name" | wc -l)"
-    echo "RAM GB   : $(free -g | grep Mem| awk '{print $2 }')"
+    echo "RAM MB   : $(free -m | grep Mem| awk '{print $2 }')"
     echo "HDD Size : $(df -h | grep sda1 | awk '{print $2 }')"
 }
 
@@ -174,7 +174,6 @@ set number
 set modeline
 set expandtab
 set nowrap
-set linebreak
 
 set ls=2
 set tabstop=4
