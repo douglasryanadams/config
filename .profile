@@ -1,4 +1,4 @@
-#
+
 # This is sourced from a lot of places and though most pieces have been customized credit for the contents of this file
 # goes to many people, websites, and frustrating configurations I've encountered over the years. Please take what you
 # like from this file.
@@ -161,6 +161,14 @@ list () {
 trees () {
 current_depth=0
 list
+}
+
+encrypt () {
+    openssl aes-256-cbc -a -salt -in $1 -out $1.encrypted && rm $1
+}
+
+decrypt () {
+    openssl aes-256-cbc -d -a -in $1 -out ${1%".encrypted"} && rm $1
 }
 
 # Makes it easy to bring my ~/.vimrc with me via sssh
