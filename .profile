@@ -181,7 +181,7 @@ set smartindent
 set number
 set modeline
 set expandtab
-set nowrap
+set wrap
 
 set ls=2
 set tabstop=4
