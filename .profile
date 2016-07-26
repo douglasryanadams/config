@@ -69,6 +69,7 @@ alias pp='python -m json.tool'
 alias mine='git update-index --assume-unchanged'
 alias download_site="wget -r -k -p"
 alias statservices="ls /etc/init.d | xargs -I{} service {} status"
+alias passrandom="pwgen -s -y 32 1"
 
 gitstat() {
     for d in *;do 
