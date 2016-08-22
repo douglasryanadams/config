@@ -70,6 +70,7 @@ alias mine='git update-index --assume-unchanged'
 alias download_site="wget -r -k -p"
 alias statservices="ls /etc/init.d | xargs -I{} service {} status"
 alias passrandom="pwgen -s -y 32 1"
+alias hey='sudo'
 
 gitstat() {
     for d in *;do 
@@ -170,6 +171,18 @@ encrypt () {
 
 decrypt () {
     openssl aes-256-cbc -d -a -in $1 -out ${1%".encrypted"} && rm $1
+}
+
+mann() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
 }
 
 # Makes it easy to bring my ~/.vimrc with me via sssh
