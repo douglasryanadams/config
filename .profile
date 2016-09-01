@@ -70,6 +70,9 @@ alias mine='git update-index --assume-unchanged'
 alias download_site="wget -r -k -p"
 alias statservices="ls /etc/init.d | xargs -I{} service {} status"
 alias passrandom="pwgen -s -y 32 1"
+alias sudols="sudo ls -lh $ls_color"
+alias sudovim='sudo vim -u ~/.vimrc'
+alias sudovimr='sudo vim -R -u ~/.vimrc'
 alias hey='sudo'
 
 gitstat() {
