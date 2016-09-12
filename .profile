@@ -37,7 +37,13 @@ if [ "$(uname)" == "Darwin" ]; then
     export PATH=/usr/local/git/bin:$PATH
     PS1="-\[\e[31m\]\$?\[\e[m\]- <\[\e[0;37m\]\u\[\e[m\]> \[\e[0;33m\]\w\[\e[m\] : "
 
-    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+    if which pyenv-virtualenv-init > /dev/null; then 
+        eval "$(pyenv virtualenv-init -)"
+    else 
+        if which pygmentize > /dev/null; then
+            alias ccat='pygmentize -g -O style=colorful,linenos=1'
+        fi
+    fi
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
