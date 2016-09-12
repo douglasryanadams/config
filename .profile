@@ -41,7 +41,7 @@ if [ "$(uname)" == "Darwin" ]; then
         eval "$(pyenv virtualenv-init -)"
     else 
         if which pygmentize > /dev/null; then
-            alias ccat='pygmentize -g -O style=colorful,linenos=1'
+            alias pcat='pygmentize'
         fi
     fi
 
