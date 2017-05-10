@@ -20,11 +20,6 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# If I'm in a directory with a Python Virtual Environment, use it
-if [ -d "venv" ]; then
-    source venv/bin/activate
-fi
-
 java_exists=$(which java)
 if [ "$(uname)" == "Darwin" ]; then
 
@@ -44,6 +39,8 @@ if [ "$(uname)" == "Darwin" ]; then
             alias pcat='pygmentize'
         fi
     fi
+    export PATH="/usr/local/sbin:$PATH"
+
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
@@ -79,6 +76,8 @@ alias passrandom="pwgen -s -y 32 1"
 alias sudols="sudo ls -lh $ls_color"
 alias sudovim='sudo vim -u ~/.vimrc'
 alias sudovimr='sudo vim -R -u ~/.vimrc'
+alias py2='source ~/workspace/venv/bin/activate'
+alias py3='source ~/workspace/venv3/bin/activate'
 alias hey='sudo'
 
 gitstat() {
@@ -221,8 +220,10 @@ set laststatus=2
 au BufNewFile,BufRead *.sls set ft=yaml
 au BufNewFile,BufRead *.play set ft=yaml
 au BufNewFile,BufRead *.task set ft=yaml
+au BufNewFile,BufRead *-vault set ft=yaml
 au BufNewFile,BufRead *.json set ft=javascript
 " > ~/.vimrc
 
 # For iterm3
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+

@@ -5,6 +5,7 @@ target/
 .DS_Store
 .checkstyle
 .wtpmodules
+.cache
 jmeter.log
 activemq-data
 nb-configuration.xml
@@ -12,8 +13,10 @@ __pycache__
 *.pyc
 *.iml
 *.swp
-config.json
 mvn.out
 *.log
 kitchen-vagrant
 .vimrc
+.eggs/
+*.egg-info/
+dist/
