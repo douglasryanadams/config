@@ -20,3 +20,4 @@ kitchen-vagrant
 .eggs/
 *.egg-info/
 dist/
+.cache/
