@@ -30,7 +30,7 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
 
     export PATH=/usr/local/git/bin:$PATH
-    PS1=" \[\e[2;31m\]\D{%T}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[31m\]\$?\[\e[m\].\[\e[0;33m\]\w\[\e[m\]. "
+    PS1="\[\e[2;31m\]\D{%T}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[31m\]\$?\[\e[m\].\[\e[0;33m\]\w\[\e[m\] > "
 
     if which pyenv-virtualenv-init > /dev/null; then 
         eval "$(pyenv virtualenv-init -)"
@@ -49,12 +49,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     if [ "" != "$java_exists" ]; then
         export JAVA_HOME='/usr/lib/jvm/default-java'
     fi
-    PS1=" \[\e[2;31m\]\D{%T%z}\[\e[m\].\[\e[1;37m\]\u\[\e[m\].\[\e[0;31m\]\h\[\e[m\].\[\e[33m\]\$?\[\e[m\].\[\e[0;37m\]\w\[\e[m\]. "
+    PS1="\[\e[2;31m\]\D{%T%z}\[\e[m\].\[\e[1;37m\]\u\[\e[m\].\[\e[0;31m\]\h\[\e[m\].\[\e[33m\]\$?\[\e[m\].\[\e[0;37m\]\w\[\e[m\] >> "
 
 else
 
     ls_color=""
-    PS1=" \[\e[2;31m\]\D{%T%z}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[1;36m\]\H\[\e[m\].\[\e[93m\]\$?\[\e[m\].\[\e[0;37m\]\w\[\e[m\]. "
+    PS1="\[\e[2;31m\]\D{%T%z}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[1;36m\]\H\[\e[m\].\[\e[93m\]\$?\[\e[m\].\[\e[0;37m\]\w\[\e[m\] . "
 
 fi
 
