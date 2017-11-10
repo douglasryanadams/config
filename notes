@@ -4,3 +4,9 @@ keytool -import -alias {alias} -file {file_location.cert} -keystore /usr/lib/jvm
 tar -czv --exclude=config/.git -f config.tar.gz config/
 ldapsearch -x -H "ldap://{domain}:{port}" -D "uid={username},cn=xxx,cn=xxx,dc=xxx,dc=xxx,dc=xxx" -W -b "cn=xxx,cn=xxx,dc=xxx,dc=xxx,dc=xxx"
 
+Web Forensics Tools:
+
+wafw00f - Python module (install with pip) that detects firewall technologies
+nikto - (install with brew) scans target site for information and vulnerabilities
+
+
