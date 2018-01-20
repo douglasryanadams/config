@@ -30,7 +30,7 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
 
     export PATH=/usr/local/git/bin:$PATH
-    PS1="\[\e[2;31m\]\D{%T}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[31m\]\$?\[\e[m\].\[\e[0;33m\]\w\[\e[m\] > "
+    PS1="\$(gitbranch).\[\e[2;31m\]\D{%T}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[31m\]\$?\[\e[m\].\[\e[0;33m\]\w\[\e[m\] > "
 
     if which pyenv-virtualenv-init > /dev/null; then 
         eval "$(pyenv virtualenv-init -)"
@@ -100,6 +100,10 @@ gitpull() {
         echo
         echo
     done
+}
+
+gitbranch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 sssh() {
@@ -204,6 +208,7 @@ set number
 set modeline
 set expandtab
 set wrap
+set ruler
 
 set ls=2
 set tabstop=4
