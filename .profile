@@ -7,7 +7,6 @@
 # you use it on.
 #
 
-
 # Include .bashrc if it exists
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
@@ -30,7 +29,7 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
 
     export PATH=/usr/local/git/bin:$PATH
-    PS1="\$(gitbranch).\[\e[2;31m\]\D{%T}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[31m\]\$?\[\e[m\].\[\e[0;33m\]\w\[\e[m\] > "
+    PS1="\[\e[2;31m\]\D{%T}\[\e[m\].\[\e[0;37m\]\u\[\e[m\].\[\e[31m\]\$?\[\e[m\].\[\e[0;33m\]\w\[\e[m\]\$(gitbranch) > "
 
     if which pyenv-virtualenv-init > /dev/null; then 
         eval "$(pyenv virtualenv-init -)"
@@ -103,7 +102,12 @@ gitpull() {
 }
 
 gitbranch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+    B=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    if [[ "" != "$B" ]]; then
+        printf ' \e[0;92m'
+        printf "[$B]"
+        printf '\e[0m'
+    fi
 }
 
 sssh() {
