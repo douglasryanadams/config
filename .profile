@@ -20,6 +20,16 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 java_exists=$(which java)
+
+PROMPT_COMMAND='
+    lc=$?
+    if [ $lc -ne 0 ]; then
+       echo -en "\033[1;31m$lc\033[0m ";
+    fi;
+'
+PS1="\w » "
+PS2="  \[\e[5m\]...\[\e[0m\] "
+
 if [ "$(uname)" == "Darwin" ]; then
 
     ls_color="-G"
@@ -28,18 +38,11 @@ if [ "$(uname)" == "Darwin" ]; then
         export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
     fi
 
-    export PATH=/usr/local/git/bin:$PATH
-    PS1="\[\e[2;31m\]\D{%T}\[\e[0m\].\[\e[0;37m\]\u\[\e[0m\].\[\e[31m\]\$?\[\e[0m\].\[\e[0;33m\]\w\[\e[0m\] \[\e[0;92m\]\$(gitbranch)\[\e[0m\] > "
+    export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
+    #export MAVEN_OPTS='-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9090 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote.rmi.port=9091 -Djava.rmi.server.hostname=127.0.0.1'
 
-    if which pyenv-virtualenv-init > /dev/null; then 
-        eval "$(pyenv virtualenv-init -)"
-    else 
-        if which pygmentize > /dev/null; then
-            alias pcat='pygmentize'
-        fi
-    fi
-    export PATH="/usr/local/sbin:$PATH"
-
+    # For iterm3
+    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
@@ -48,15 +51,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     if [ "" != "$java_exists" ]; then
         export JAVA_HOME='/usr/lib/jvm/default-java'
     fi
-    PS1="\[\e[2;31m\]\D{%T%z}\[\e[0m\].\[\e[1;37m\]\u\[\e[0m\].\[\e[0;31m\]\h\[\e[0m\].\[\e[33m\]\$?\[\e[0m\].\[\e[0;37m\]\w\[\e[0m\] >> "
 
 else
-
     ls_color=""
-    PS1="\[\e[2;31m\]\D{%T%z}\[\e[0m\].\[\e[0;37m\]\u\[\e[0m\].\[\e[1;36m\]\H\[\e[0m\].\[\e[93m\]\$?\[\e[0m\].\[\e[0;37m\]\w\[\e[0m\] . "
-
 fi
 
+export HISTTIMEFORMAT="%y-%m-%d %T "
 export ANSIBLE_HOST_KEY_CHECKING=False 
 export EDITOR=$(which vim)
 export CLICOLOR=1
@@ -67,14 +67,12 @@ alias lsc='ls -lh $ls_color'
 alias grep='grep --color'
 alias wrap='tput smam'
 alias nowrap='tput rmam'
-alias pp='python -m json.tool'
-alias mine='git update-index --assume-unchanged'
-alias download_site="wget -r -k -p"
-alias statservices="ls /etc/init.d | xargs -I{} service {} status"
 alias passrandom="pwgen -s -y 32 1"
+
 alias sudols="sudo ls -lh $ls_color"
 alias sudovim='sudo vim -u ~/.vimrc'
 alias sudovimr='sudo vim -R -u ~/.vimrc'
+
 alias py2='source ~/workspace/venv/bin/activate'
 alias py3='source ~/workspace/venv3/bin/activate'
 alias hey='sudo'
@@ -111,6 +109,7 @@ gitbranch() {
 sssh() {
     cat $HOME/.ssh/id_rsa.pub | ssh $1 "cat > authorized_keys; mkdir -p .ssh; chmod 0700 .ssh; mv authorized_keys .ssh; chmod 0600 .ssh/authorized_keys"
     scp ~/.profile $1:
+    scp ~/.vimrc $1:
     ssh $1
 }
 
@@ -199,38 +198,4 @@ mann() {
             man "$@"
 }
 
-# Makes it easy to bring my ~/.vimrc with me via sssh
-echo "
-syntax enable
-filetype plugin on
-
-set autoindent
-set smartindent
-set number
-set modeline
-set expandtab
-set wrap
-set ruler
-
-set ls=2
-set tabstop=4
-set shiftwidth=4
-set textwidth=0
-set foldlevel=99
-set backspace=indent,eol,start
-set fdm=indent
-set scrolloff=8
-set sidescrolloff=15
-set sidescroll=1
-set laststatus=2
-
-au BufNewFile,BufRead *.sls set ft=yaml
-au BufNewFile,BufRead *.play set ft=yaml
-au BufNewFile,BufRead *.task set ft=yaml
-au BufNewFile,BufRead *-vault set ft=yaml
-au BufNewFile,BufRead *.json set ft=javascript
-" > ~/.vimrc
-
-# For iterm3
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 

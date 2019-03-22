@@ -16,7 +16,6 @@ __pycache__
 mvn.out
 *.log
 kitchen-vagrant
-.vimrc
 .eggs/
 *.egg-info/
 dist/
