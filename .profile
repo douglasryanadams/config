@@ -24,11 +24,13 @@ java_exists=$(which java)
 PROMPT_COMMAND='
     lc=$?
     if [ $lc -ne 0 ]; then
-       echo -en "\033[1;31m$lc\033[0m ";
+        printf "\a\033[1;31m%3s\033[0m " "$lc";
+    else
+        printf "\033[1;32m%3s\033[0m " "$lc"
     fi;
 '
 PS1="\w » "
-PS2="  \[\e[5m\]...\[\e[0m\] "
+PS2="  \[\e[5m\]…\[\e[0m\] "
 
 if [ "$(uname)" == "Darwin" ]; then
 
