@@ -24,9 +24,9 @@ java_exists=$(which java)
 PROMPT_COMMAND='
     lc=$?
     if [ $lc -ne 0 ]; then
-        printf "\a\033[1;31m%3s\033[0m " "$lc";
+        printf "\a %3s " "$lc";
     else
-        printf "\033[1;32m%3s\033[0m " "$lc"
+        printf "%3s " "$lc"
     fi;
 '
 PS1="\w » "
