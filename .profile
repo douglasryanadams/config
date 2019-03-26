@@ -56,10 +56,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         export JAVA_HOME='/usr/lib/jvm/default-java'
     fi
 
-    PS1="\$? \w × "
+    PS1="\$? \h \w × "
 else
     ls_color=""
-    PS1="\$? \w ¤ "
+    PS1="\$? \h \w ¤ "
 fi
 
 export HISTTIMEFORMAT="%y-%m-%d %T "
