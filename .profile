@@ -31,7 +31,6 @@ java_exists=$(which java)
 #    fi;
 #}
 #PROMPT_COMMAND=__prompt_command
-PS1="\$? \w » "
 PS2="  \[\e[5m\]…\[\e[0m\] "
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -42,6 +41,7 @@ if [ "$(uname)" == "Darwin" ]; then
         export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
     fi
 
+    PS1="\$? \w » "
     export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
     #export MAVEN_OPTS='-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9090 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote.rmi.port=9091 -Djava.rmi.server.hostname=127.0.0.1'
 
@@ -56,8 +56,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         export JAVA_HOME='/usr/lib/jvm/default-java'
     fi
 
+    PS1="\$? \w × "
 else
     ls_color=""
+    PS1="\$? \w ¤ "
 fi
 
 export HISTTIMEFORMAT="%y-%m-%d %T "
