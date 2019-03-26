@@ -21,15 +21,17 @@ fi
 
 java_exists=$(which java)
 
-PROMPT_COMMAND='
-    lc=$?
-    if [ $lc -ne 0 ]; then
-        printf "\a %3s " "$lc";
-    else
-        printf "%3s " "$lc"
-    fi;
-'
-PS1="\w » "
+
+#__prompt_command() {
+#    lc=$?
+#    if [ $lc -ne 0 ]; then
+#        printf "\a%3s " "$lc";
+#    else
+#        printf "%3s " "$lc"
+#    fi;
+#}
+#PROMPT_COMMAND=__prompt_command
+PS1="\$? \w » "
 PS2="  \[\e[5m\]…\[\e[0m\] "
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -44,7 +46,7 @@ if [ "$(uname)" == "Darwin" ]; then
     #export MAVEN_OPTS='-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9090 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote.rmi.port=9091 -Djava.rmi.server.hostname=127.0.0.1'
 
     # For iterm3
-    #test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
