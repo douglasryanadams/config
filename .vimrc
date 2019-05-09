@@ -1,5 +1,6 @@
 syntax enable
 filetype plugin on
+setlocal cm=blowfish2
 
 set autoindent
 set smartindent
