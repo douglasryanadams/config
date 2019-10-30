@@ -81,6 +81,7 @@ alias sudovimr='sudo vim -R -u ~/.vimrc'
 
 alias py2='source ~/workspace/venv/bin/activate'
 alias py3='source ~/workspace/venv3/bin/activate'
+alias pyAnsible='source ~/workspace/venv-ansible/bin/activate'
 alias hey='sudo'
 
 alias gittrim='git branch -d $(git branch --merged=master | grep -v master) && git fetch --prune'
@@ -207,5 +208,3 @@ mann() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
-
-
