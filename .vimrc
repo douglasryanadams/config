@@ -8,6 +8,7 @@ set number
 set modeline
 set expandtab
 set wrap
+set linebreak
 set ruler
 
 set ls=2
