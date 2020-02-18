@@ -116,11 +116,8 @@ gitbranch() {
 }
 
 sssh() {
-    echo "$1" | cut -d"." -f1 > "/tmp/hostname_$1.txt"
-    cat $HOME/.ssh/id_rsa.pub | ssh $1 "cat > authorized_keys; mkdir -p .ssh; chmod 0700 .ssh; mv authorized_keys .ssh; chmod 0600 .ssh/authorized_keys"
     scp ~/.profile $1:
     scp ~/.vimrc $1:
-    scp "/tmp/hostname_$1.txt" $1:.hostname
     ssh $1
 }
 
