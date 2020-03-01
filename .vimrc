@@ -10,8 +10,8 @@ call vundle#begin()
 
 " Plugins Start ---->
 
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim' " Auto-completion
-Plugin 'frazrepo/vim-rainbow' " Rainbow Braces
 
 " <---- End Plugins
 
@@ -86,5 +86,3 @@ au BufNewFile,BufRead *.py
 " Plugin Specific Settings
 " ------------------------
 
-" For vim-rainbow
-let g:rainbow_active = 1 " Turns it on by default
