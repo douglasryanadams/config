@@ -73,15 +73,7 @@ au BufNewFile,BufRead *.vue set ft=html
 au BufNewFile,BufRead *.json set ft=javascript
 
 " Python specific, to satisfy pep8
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
+au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 " Plugin Specific Settings
 " ------------------------
