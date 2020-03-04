@@ -29,7 +29,6 @@ ln -s ../.profile ~/.profile
 ln -s /usr/bin/python3 /usr/local/bin/python # Sets python3 as default
 
 sudo python -m pip install --upgrade pip # Upgrade pip
-sudo python -m pip install grip # Install Markdown dev server
 
 # Setup VIM Plugins
 # -----------------
