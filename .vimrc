@@ -11,7 +11,9 @@ call vundle#begin()
 " Plugins Start ---->
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'davidhalter/jedi-vim' " Auto-completion
+Plugin 'davidhalter/jedi-vim' " Auto-completion, Refactoring
+Plugin 'preservim/nerdtree' " Directory tree
+Plugin 'mechatroner/rainbow_csv' " CSV Colors + RBQL
 
 " <---- End Plugins
 
@@ -59,7 +61,7 @@ set sidescroll=1
 set laststatus=2 " Always show last status
 
 set statusline=%t\ %m%r%y%=%l/%L\ %c\ %P
-
+set path+=** " Alloy Vim to recursively search all child directories
 
 " Flag unnecessary whitespace
 highlight BadWhitespace ctermbg=red
@@ -71,9 +73,12 @@ au BufNewFile,BufRead *.task set ft=yaml
 au BufNewFile,BufRead *-vault set ft=yaml
 au BufNewFile,BufRead *.vue set ft=html
 au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.conf set ft=config
+au BufNewFile,BufRead *.config set ft=config
+au BufNewFile,BufRead *.ini set ft=config
 
 " Python specific, to satisfy pep8
-au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
 
 " Plugin Specific Settings
 " ------------------------

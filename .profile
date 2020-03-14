@@ -184,3 +184,5 @@ mann() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
+
+export PATH="$HOME/.cargo/bin:$PATH"
