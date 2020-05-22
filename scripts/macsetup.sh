@@ -19,7 +19,7 @@ sudo xcode-select --install
 # fzf - Fuzzy recursive file finder
 # rectangle - Window manager that Mac should have come with
 
-brew install bash macvim git npm jq watch tree ripgrep fzf
+brew install bash macvim git npm jq watch tree ripgrep fzf ccat
 brew cask install rectangle
 
 # Symlinks

@@ -76,6 +76,7 @@ au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.conf set ft=config
 au BufNewFile,BufRead *.config set ft=config
 au BufNewFile,BufRead *.ini set ft=config
+au BufNewFile,BufRead *.toml set ft=config
 
 " Python specific, to satisfy pep8
 au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
