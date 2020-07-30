@@ -11,9 +11,11 @@ call vundle#begin()
 " Plugins Start ---->
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'davidhalter/jedi-vim' " Auto-completion, Refactoring
+Plugin 'davidhalter/jedi-vim' " Python Auto-completion, Refactoring
 Plugin 'preservim/nerdtree' " Directory tree
 Plugin 'mechatroner/rainbow_csv' " CSV Colors + RBQL
+Plugin 'vim-syntastic/syntastic' " Syntax Highlighting Enginer
+Plugin 'rust-lang/rust.vim' " Rust Syntax
 
 " <---- End Plugins
 
