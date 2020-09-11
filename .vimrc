@@ -11,7 +11,7 @@ call vundle#begin()
 " Plugins Start ---->
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'davidhalter/jedi-vim' " Auto-completion, Refactoring
+Plugin 'davidhalter/jedi-vim' " Python Auto-completion, Refactoring
 Plugin 'preservim/nerdtree' " Directory tree
 Plugin 'mechatroner/rainbow_csv' " CSV Colors + RBQL
 Plugin 'scrooloose/syntastic' " Syntactic Highlighting For Many Things
@@ -20,7 +20,6 @@ Plugin 'cespare/vim-toml' " toml config syntax
 Plugin 'chr4/nginx.vim' " Nginx Config Highlighting
 Plugin 'hashivim/vim-terraform' " Terraform Syntax
 Plugin 'juliosueiras/vim-terraform-completion' " Terraform Autocomplete
-
 
 " <---- End Plugins
 
@@ -89,6 +88,7 @@ au BufNewFile,BufRead *.config set ft=config
 au BufNewFile,BufRead *.ini set ft=config
 au BufNewFile,BufRead Dockerfile* set ft=dockerfile
 au BufNewFile,BufRead Vagrantfile set ft=ruby
+au BufNewFile,BufRead *.toml set ft=config
 
 " Python specific, to satisfy pep8
 au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
