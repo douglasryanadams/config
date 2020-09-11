@@ -14,6 +14,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim' " Auto-completion, Refactoring
 Plugin 'preservim/nerdtree' " Directory tree
 Plugin 'mechatroner/rainbow_csv' " CSV Colors + RBQL
+Plugin 'scrooloose/syntastic' " Syntactic Highlighting For Many Things
+Plugin 'rust-lang/rust.vim' " Rust Support
+Plugin 'cespare/vim-toml' " toml config syntax
+Plugin 'chr4/nginx.vim' " Nginx Config Highlighting
+Plugin 'hashivim/vim-terraform' " Terraform Syntax
+Plugin 'juliosueiras/vim-terraform-completion' " Terraform Autocomplete
+
 
 " <---- End Plugins
 
@@ -63,6 +70,10 @@ set laststatus=2 " Always show last status
 set statusline=%t\ %m%r%y%=%l/%L\ %c\ %P
 set path+=** " Alloy Vim to recursively search all child directories
 
+" Register Keys
+nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
+inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+
 " Flag unnecessary whitespace
 highlight BadWhitespace ctermbg=red
 match BadWhitespace /\s\+\%#\@<!$/
@@ -76,6 +87,8 @@ au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.conf set ft=config
 au BufNewFile,BufRead *.config set ft=config
 au BufNewFile,BufRead *.ini set ft=config
+au BufNewFile,BufRead Dockerfile* set ft=dockerfile
+au BufNewFile,BufRead Vagrantfile set ft=ruby
 
 " Python specific, to satisfy pep8
 au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
@@ -83,3 +96,18 @@ au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoi
 " Plugin Specific Settings
 " ------------------------
 
+" Terraform
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
+let g:terraform_completion_keys=1
+let g:terraform_registry_module_completion=1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%#{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_log_list=1
+let g:sytastic_check_on_open=1
+let g:syntastic_check_on_wq=1

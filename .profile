@@ -25,7 +25,7 @@ if [ "$(uname)" == "Darwin" ]; then
 
     ls_color="-G"
 
-    PS1="\$? \w » "
+    PS1="\$? \w :: "
     export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
 
     # Ignore warnings about zsh default in Catalina
@@ -35,10 +35,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     ls_color="--color=always"
 
-    PS1="\$? $(cat ~/.hostname) \w × "
+    PS1="\$? $(cat ~/.hostname) \w x "
 else
     ls_color=""
-    PS1="\$? \h \w ¤ "
+    PS1="\$? \h \w ~ "
 fi
 
 export HISTTIMEFORMAT="%y-%m-%d %T "
@@ -186,3 +186,5 @@ mann() {
 }
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
