@@ -3,6 +3,7 @@
 import urllib.request
 import shutil
 import re
+import ssl
 
 print("Beginning to evaluate hosts files ...")
 
@@ -13,9 +14,13 @@ comment_pattern = re.compile('^(#|\s).*$')
 safe_pattern = re.compile('^0\.0\.0\.0.*$')
 special_pattern = re.compile('^' + special + '$')
 
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
 def get_remote_hosts():
     print("Retrieving remote hosts file ...")
-    file_handle = urllib.request.urlopen(hosts_url)
+    file_handle = urllib.request.urlopen(hosts_url, context=ctx)
     remote_content = []
     for line_bytes in file_handle:
         line = str(line_bytes, 'utf8').rstrip() 

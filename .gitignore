@@ -21,3 +21,4 @@ kitchen-vagrant
 dist/
 .cache/*
 .idea/*
+.venv/
