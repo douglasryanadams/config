@@ -23,7 +23,7 @@ def get_remote_hosts():
     file_handle = urllib.request.urlopen(hosts_url, context=ctx)
     remote_content = []
     for line_bytes in file_handle:
-        line = str(line_bytes, 'utf8').rstrip() 
+        line = str(line_bytes, 'utf8').rstrip()
         if not comment_pattern.match(line) and safe_pattern.match(line):
             remote_content.append(line)
     file_handle.close()
