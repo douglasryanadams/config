@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/douglas.adams/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -81,7 +81,7 @@ plugins=(
   fzf
   git
   jsontools
-  osx
+  macos
   python
   ripgrep
   ssh-agent
@@ -118,3 +118,35 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+# Paths to Keg Only stuff from Brew
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
+
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/openssl@1.1/include"
+
+alias pip="python -m pip"
+alias poetry="python -m poetry"
+alias ipython="python -m ipython"
+alias ls="exa"
+
+export PATH="/Users/rain/Library/Python/3.9/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+
+eval "$(pyenv init -)"
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"

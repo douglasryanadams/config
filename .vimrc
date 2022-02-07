@@ -54,17 +54,6 @@ set hlsearch " highlight matches
 set lazyredraw " reduces frequency with which VIM redraws needlessly
 set encoding=utf-8 " Make sure we're always using utf8
 
-set ls=2
-set tabstop=2
-set shiftwidth=2
-set textwidth=0
-set foldlevel=99
-set backspace=indent,eol,start
-set fdm=indent
-set scrolloff=8
-set sidescrolloff=15
-set sidescroll=1
-set laststatus=2 " Always show last status
 
 set statusline=%t\ %m%r%y%=%l/%L\ %c\ %P
 set path+=** " Alloy Vim to recursively search all child directories
@@ -111,3 +100,17 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_log_list=1
 let g:sytastic_check_on_open=1
 let g:syntastic_check_on_wq=1
+
+" More Settings (Overriding Plugins)
+
+set ls=2
+set tabstop=2
+set shiftwidth=2
+set textwidth=0
+set foldlevel=99
+set backspace=indent,eol,start
+set fdm=indent
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
+set laststatus=2 " Always show last status
