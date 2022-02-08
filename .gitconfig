@@ -3,6 +3,6 @@
    status = auto
    branch = auto
 [core]
-   excludesfile = ~/.gitignore
+   excludesfile = ~/gitignore-global
 [push]
-    default = simple
+   default = simple
