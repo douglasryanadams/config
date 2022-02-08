@@ -44,6 +44,7 @@ brew install bash bottom curl docker docker-compose exa fzf git grep htop hyperk
 Non-brew:
 
 - Archiver (Zettel)
+- Marked 2
 - DBeaver
 - iStat Menus
 - Tidal
@@ -53,7 +54,6 @@ Non-brew:
 - IntelliJ
 - PyCharm
 - Insomnia
-
 
 Non-brew CLI Apps:
 
