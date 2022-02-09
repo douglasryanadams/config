@@ -31,6 +31,7 @@ Colors:
 - Dark One
 - Gruvbox
 - Smooooth
+- Screry
 
 
 # Apps
