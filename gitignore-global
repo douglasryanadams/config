@@ -1,24 +1,34 @@
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Build Artifacts
+dist/
+.cache/*
+.cache
+.eggs/
+*.egg-info/
+
+# Dev Environments
+*.swp
+.idea/*
+*.iml
+
+# Python
+.venv/
+*.pyc
+__pycache__
+
+# Java
 .classpath
 .project
 .settings
 target/
-.DS_Store
+
+# Other
 .checkstyle
 .wtpmodules
-.cache
-jmeter.log
-activemq-data
-nb-configuration.xml
-__pycache__
-*.pyc
-*.iml
-*.swp
-mvn.out
-*.log
-kitchen-vagrant
-.eggs/
-*.egg-info/
-dist/
-.cache/*
-.idea/*
-.venv/
+.tern-project
+

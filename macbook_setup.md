@@ -44,17 +44,17 @@ brew install bash bottom curl docker docker-compose exa fzf git grep htop hyperk
 
 Non-brew:
 
-- Archiver (Zettel)
-- Marked 2
-- DBeaver
-- iStat Menus
-- Tidal
+- The Archive (Zettel) <https://zettelkasten.de/the-archive/>
+- Marked 2 <https://marked2app.com/>
+- DBeaver <https://dbeaver.io/download/>
+- iStat Menus <https://bjango.com/mac/istatmenus/>
+- Tidal <https://offer.tidal.com/download>
 - Chrome
 - Firefox
-- iTerm 2
+- Kitty <https://sw.kovidgoyal.net/kitty/binary/>
 - IntelliJ
 - PyCharm
-- Insomnia
+- Insomnia <https://insomnia.rest/download>
 
 Non-brew CLI Apps:
 
@@ -64,7 +64,27 @@ Non-brew CLI Apps:
 Zshell Plugins:
 
 - zsh-autosuggestions
+    - <https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md>
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
 - zsh-syntax-highlighting
+    - <https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md>
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+
+Vim:
+
+- vundle <https://github.com/VundleVim/Vundle.vim>
+
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
 
 
 # IDE Settings
