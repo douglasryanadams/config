@@ -31,4 +31,4 @@ target/
 .checkstyle
 .wtpmodules
 .tern-project
-
+.ipynb_checkpoints

@@ -30,4 +30,11 @@ alias pip="python -m pip"
 alias poetry="python -m poetry"
 alias ipython="python -m ipython"
 alias ls="exa"
+alias ls_="/bin/ls"
+alias cat="bat"
+alias cat_="/bin/cat --theme gruvbox-dark"
+
+if ! type "$(minikube version)" > /dev/null; then
+  eval $(minikube docker-env)
+fi
 
